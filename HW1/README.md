@@ -1,66 +1,108 @@
-# NYCU Computer Vision 2025 Spring HW1
+# NYCU Computer Vision - Spring 2025: Homework 1
 
-**StudentID:** 312540013  
+**Student ID:** 312540013  
 **Name:** Do Tran Nhat Tuong
 
 ---
 
-## Introduction
-```
-Goal: Classify 100 categories from a 21,024-image dataset, with some classes highly similar (e.g., “white flower”).
+## 🔍 Overview
 
-Constraints: No external data, model under 100M parameters, only ResNet-based backbones allowed.
+**Objective:**  
+Classify images into 100 fine-grained categories from a dataset containing 21,024 samples. Some classes exhibit high visual similarity (e.g., different kinds of white flowers), posing additional challenges.
 
-Approach: Use ResNet variants, address class imbalance via probability sampling, and apply weak/strong data augmentations.
+**Constraints:**  
+- No use of external datasets  
+- Model size < 100M parameters  
+- Backbone limited to ResNet variants
 
-Enhancements: Integrate attention and Squeeze-and-Excitation (SE) modules to improve feature extraction.
-
-Experiments: Evaluate different batch sizes, learning rate schedulers, and optimizers, reporting comprehensive performance results.
-```
+**Approach:**  
+- Experiment with different ResNet-based architectures  
+- Handle class imbalance using probability sampling  
+- Apply both weak and strong data augmentations  
+- Integrate advanced modules like Attention and Squeeze-and-Excitation (SE) to enhance feature representation  
+- Test various training setups (batch sizes, learning rate schedulers, optimizers) and report results
 
 ---
 
-## How to install
-```
+## ⚙️ Setup
+
+Clone the repository and create the environment:
+
+```bash
 git clone https://github.com/dotrannhattuong/Selected_Topics.git
 cd Selected_Topics/HW1
 conda env create -f environment.yml
 ```
 
-## Folder Format:
+---
+
+## 📁 Project Structure
+
 ```
-HW1
--augmentation
--data
-    |-train
-    |-val
-    |-test
--log_utils
--utils
--visualize
+HW1/
+│
+├── augmentation/        # Offline augmentation scripts (weak & strong)
+├── data/                # Dataset: train/val/test folders
+├── log_utils/           # Logging and monitoring utilities
+├── utils/               # Helper functions
+├── visualize/           # Visualization scripts
 ```
 
-## Training
-```
+---
+
+## 🚀 Training
+
+Run one of the following training scripts:
+
+```bash
 cd Selected_Topics/HW1
-# Best (SE): python train.py
-# Attention: python train_att.py
-# Weighted imbalance: python train_imbl.py
-# Training with the augmentation data: python train_aug.py
+
+# Baseline with SE module
+python train.py
+
+# Model with attention mechanism
+python train_att.py
+
+# Handle class imbalance with weighted sampling
+python train_imbl.py
+
+# Train with augmented data
+python train_aug.py
 ```
 
-## Appendix
-### Offline augmentation
-```
-cd Selected_Topics/HW1
-# Weak: python augmentation/weak.py
-# Strong: python augmentation/strong.py
+---
+
+## 🧩 Appendix
+
+### 🔄 Offline Augmentation
+
+Apply data augmentation before training:
+
+```bash
+# Weak augmentation
+python augmentation/weak.py
+
+# Strong augmentation
+python augmentation/strong.py
 ```
 
-### Visualization
-```
+---
+
+### 📊 Visualization
+
+Generate training metrics and analysis:
+
+```bash
 cd Selected_Topics
-# Training Curve: python -m HW1.visualize.training_curve
-# Confusion Matrix: python -m custom.visualize.corre
-# Count number of classes: python -m HW1.visualize.num_class
+
+# Plot training/validation loss & accuracy curves
+python -m HW1.visualize.training_curve
+
+# Draw confusion matrix
+python -m custom.visualize.corre
+
+# Count number of images per class
+python -m HW1.visualize.num_class
 ```
+
+---
