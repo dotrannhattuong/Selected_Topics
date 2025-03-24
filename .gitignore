@@ -1,0 +1,15 @@
+# Ignore Python bytecode files and directories
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdf
+*.png
+*.jpg
+
+
+# Ignore any directory named "checkpoints"
+**/checkpoints*/
+**/cp*/
+**/backup/
+**/data/
