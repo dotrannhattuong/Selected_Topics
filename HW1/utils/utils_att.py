@@ -83,7 +83,10 @@ def test(model, mha_block, dataloader, device, output_csv):
 
     # Create a zip archive containing the CSV file.
     folder_name = output_csv.split('/')[0]
-    zip_filename = f"{folder_name}/{folder_name}.zip"
+    basename = folder_name.split('/')[-1]
+    zip_filename = (
+        f"{folder_name}/{basename}.zip"
+    )
     with zipfile.ZipFile(
         zip_filename, 'w', zipfile.ZIP_DEFLATED
     ) as zipf:
