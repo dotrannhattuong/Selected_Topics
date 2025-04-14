@@ -6,10 +6,11 @@ __pycache__/
 *.pdf
 *.png
 *.jpg
-
+**/*.sh
 
 # Ignore any directory named "checkpoints"
 **/checkpoints*/
 **/cp*/
 **/backup/
 **/data/
+**/results/
