@@ -39,16 +39,23 @@ python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
 pip install opencv-python
 
 ## 📁 Project Structure
-```bash
 HW2/
 │
-├── configs/              # Configuration files for model training.
 ├── data/                 # COCO-format dataset folders: train, valid, test.
-├── logs/                 # Training logs and TensorBoard files.
-├── outputs/              # Model checkpoints and prediction outputs.
-├── scripts/              # Training, evaluation, and inference scripts.
 ├── visualize/            # Visualization scripts for plots and analysis.
 └── README.md             # This file.
+```
+
+## Visualize
+```bash
+# Get some sample images
+python visualize/resize.py
+
+# Get bounding box distribution
+python visualize/bbox.py
+
+# Get ratio of width and height
+python visualize/ratio.py
 ```
 
 ## 🚀 Training

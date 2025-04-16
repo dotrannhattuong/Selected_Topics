@@ -62,7 +62,7 @@ def get_parser():
     parser.add_argument(
         "--ims-per-batch",
         type=int,
-        default=8
+        default=4
     )
     parser.add_argument(
         "--checkpoint-period",
@@ -87,7 +87,7 @@ def get_parser():
     parser.add_argument(
         "--anchor_size",
         nargs='+', type=int,
-        default=[8, 16, 32, 64, 128, 256]
+        default=[8, 16, 32, 64, 128]
     )
     parser.add_argument(
         "--device",
