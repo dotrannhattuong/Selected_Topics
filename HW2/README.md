@@ -85,6 +85,18 @@ Both files are also packaged into zip files (e.g., *_task1.zip for JSON and *_ta
 
 ## 📊 Experimental Results
 
+### Effect of Anchor Box Size Range on Digit Detection Performance
+
+| Anchor Size (Start–End) | Validation AP | Validation Accuracy | Testing AP | Testing Accuracy |
+|------------------------|---------------|---------------------|------------|------------------|
+| **8–128**              | **0.486**     | **0.967**           | **0.40**   | **0.82**         |
+| 8–256                  | 0.480         | 0.944               | 0.39       | 0.78             |
+| 8–512                  | 0.483         | 0.944               | 0.38       | 0.79             |
+| 16–512                 | 0.480         | 0.940               | 0.38       | 0.78             |
+| 32–512                 | 0.462         | 0.971               | 0.37       | 0.80             |
+
+**Table 3.** Effect of anchor box size range on digit detection performance using the X101-FPN backbone and CIoU loss. Results are reported on the validation and testing sets using AP and classification accuracy (%). The **best-performing configuration** (highlighted in bold) was submitted to the CODA competition.
+
 
 ## 📝 Conclusion
 In this homework, we fine‑tuned a Faster R‑CNN detector on a custom digit dataset by leveraging targeted data augmentation and loss function adjustments. Our experiments suggest that adjusting anchor sizes and aspect ratios based on the dataset's bounding box statistics—and using Giou loss in the ROI Box Head—can lead to improved localization performance. The results (summarized in the tables above) demonstrate the impact of architectural variations and loss settings on both AP and accuracy.
