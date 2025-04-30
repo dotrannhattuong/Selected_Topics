@@ -9,6 +9,7 @@ __pycache__/
 *.yaml
 *.pth
 *.json
+*.zip
 **/*.sh
 
 # Ignore any directory named "checkpoints"
