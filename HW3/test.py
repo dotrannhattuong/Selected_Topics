@@ -11,26 +11,26 @@ from detectron2.engine import DefaultPredictor
 from detectron2.config import get_cfg
 from detectron2.utils.visualizer import Visualizer
 from detectron2.utils.visualizer import ColorMode
+from mpvit import add_mpvit_config
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "7"
 
 def get_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--test_folder", type=str, default="data/test_release")
-    parser.add_argument("--output_dir", type=str, default="results/models/R50_C41x_2")
-    parser.add_argument("--trained_model", type=str, default="checkpoints/models/R50_C41x_2")
-    parser.add_argument("--mapping_json", type=str, default="data/test_image_name_to_ids.json")
-    parser.add_argument("--confidence_threshold", type=float, default=0.5)
+    parser.add_argument("--test_folder", type=str, default="../../data/test_release")
+    parser.add_argument("--output_dir", type=str, default="results/mask_rcnn_mpvit_base_ms_3x")
+    parser.add_argument("--config_file", type=str, default="configs/mask_rcnn_mpvit_base_ms_3x.yaml")
+    parser.add_argument("--trained_model", type=str, default="output/mask_rcnn_mpvit_base_ms_3x")
+    parser.add_argument("--mapping_json", type=str, default="../../data/test_image_name_to_ids.json")
     parser.add_argument("--device", type=str, default="cuda")
     return parser
 
 def setup_model(args):
     cfg = get_cfg()
-    cfg.merge_from_file(os.path.join(args.trained_model, "config.yaml"))
+    add_mpvit_config(cfg)
+    cfg.merge_from_file(args.config_file)
     cfg.MODEL.WEIGHTS = os.path.join(args.trained_model, "model_best.pth")
-    # cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.7
-    cfg.MODEL.DEVICE = args.device
-    # cfg.freeze()
+    cfg.TEST.DETECTIONS_PER_IMAGE = 1000    
     return DefaultPredictor(cfg)
 
 def load_image_id_mapping(mapping_json_path):
