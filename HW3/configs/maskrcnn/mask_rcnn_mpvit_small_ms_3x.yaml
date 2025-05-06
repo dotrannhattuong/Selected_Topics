@@ -1,0 +1,15 @@
+_BASE_: "../Base-RCNN-FPN.yaml"
+MODEL:
+  MASK_ON: True
+  WEIGHTS: "https://dl.dropbox.com/s/3rk44pybi9jq9yq/mpvit_small_d2.pth"
+  MPVIT:
+    NAME: "mpvit_small"
+    DROP_PATH: 0.2
+# INPUT:
+#   CROP:
+#     ENABLED: True
+#     TYPE: "absolute_range"
+#     SIZE: (384, 600)
+AUG:
+  DETR: True
+OUTPUT_DIR: "checkpoints/mpvit/mask_rcnn_mpvit_small_ms_3x"

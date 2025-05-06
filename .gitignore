@@ -6,7 +6,7 @@ __pycache__/
 *.pdf
 # *.png
 *.jpg
-*.yaml
+# *.yaml
 *.pth
 *.json
 *.zip
