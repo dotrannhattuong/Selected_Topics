@@ -57,17 +57,23 @@ python create_coco_labels.py
 
 ## Training
 ```bash
+# MPViT
 python train_net.py --config-file configs/maskrcnn/mask_rcnn_mpvit_base_ms_3x.yaml --num-gpus 8
+# ResNet
+python train_resnet.py --model mask_rcnn_X_101_32x8d_FPN_3x.yaml --output_dir checkpoints/models/X101_FPN3x
 ```
 
 ## Testing
 ```bash
-python test.py --output_dir results/mask_rcnn_mpvit_base_ms_3x --config-file configs/maskrcnn/mask_rcnn_mpvit_base_ms_3x.yaml --trained_model output/mask_rcnn_mpvit_base_ms_3x
+# MPViT
+python test.py --output_dir results/mask_rcnn_mpvit_base_ms_3x --trained_model output/mask_rcnn_mpvit_base_ms_3x
+# ResNet
+python test_resnet --output_dir results/models/X101_FPN3x --trained_model ./checkpoints/models/X101_FPN3x
 ```
 
 ## Performance snapshot
-- Segmentation mAP: **Y.YY**
-- Leaderboard ranking: **Top Z**
+- Segmentation mAP: **0.534**
+- Leaderboard ranking: **Top 4**
 
 <p align="center">
   <img src="perform.png" alt="Segmentation performance visualization" width="600"/>

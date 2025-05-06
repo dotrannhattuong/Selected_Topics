@@ -31,7 +31,7 @@ def add_mpvit_config(cfg):
 
     _C.MODEL.MPVIT.DROP_PATH = 0.
 
-    _C.MODEL.MPVIT.MODEL_KWARGS = "{}"
+    # _C.MODEL.MPVIT.MODEL_KWARGS = "{}"
 
     _C.SOLVER.OPTIMIZER = "ADAMW"
 

@@ -2,7 +2,7 @@ import json
 import matplotlib.pyplot as plt
 
 # Path to training log JSON
-json_file = "vit_X101.json"
+json_file = "metrics.json"
 
 # Containers for iteration, loss, and AP
 iterations_loss = []

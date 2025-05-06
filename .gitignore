@@ -4,7 +4,7 @@ __pycache__/
 *.pyo
 *.pyd
 *.pdf
-*.png
+# *.png
 *.jpg
 *.yaml
 *.pth

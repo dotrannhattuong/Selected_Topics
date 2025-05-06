@@ -92,7 +92,7 @@ def build_mpvit_backbone(cfg):
     norm = cfg.MODEL.MPVIT.NORM
     drop_path = cfg.MODEL.MPVIT.DROP_PATH
 
-    model_kwargs = eval(str(cfg.MODEL.MPVIT.MODEL_KWARGS).replace("`", ""))
+    model_kwargs = eval("{}") # eval(str(cfg.MODEL.MPVIT.MODEL_KWARGS).replace("`", ""))
 
     return MPViT_Backbone(name, out_features, norm, drop_path, model_kwargs)
 
