@@ -19,7 +19,6 @@ def get_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--test_folder", type=str, default="../../data/test_release")
     parser.add_argument("--output_dir", type=str, default="results/mask_rcnn_mpvit_base_ms_3x")
-    parser.add_argument("--config_file", type=str, default="configs/maskrcnn/mask_rcnn_mpvit_base_ms_3x.yaml")
     parser.add_argument("--trained_model", type=str, default="output/mask_rcnn_mpvit_base_ms_3x")
     parser.add_argument("--mapping_json", type=str, default="../../data/test_image_name_to_ids.json")
     parser.add_argument("--device", type=str, default="cuda")
@@ -28,7 +27,7 @@ def get_parser():
 def setup_model(args):
     cfg = get_cfg()
     add_mpvit_config(cfg)
-    cfg.merge_from_file(args.config_file)
+    cfg.merge_from_file(os.path.join(args.trained_model, "config.yaml"))
     cfg.MODEL.WEIGHTS = os.path.join(args.trained_model, "model_best.pth")
     cfg.TEST.DETECTIONS_PER_IMAGE = 1000    
     return DefaultPredictor(cfg)
