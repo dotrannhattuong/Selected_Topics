@@ -32,10 +32,10 @@ from detectron2.data import MetadataCatalog, DatasetCatalog
 
 # Register the training and validation datasets in COCO format.
 register_coco_instances(
-    "my_dataset_train", {}, "../../data/full.json", "../../data/train"
+    "my_dataset_train", {}, "./data/full.json", "./data/train"
 )
 # register_coco_instances(
-#     "my_dataset_val", {}, "../../data/val.json", "../../data/train"
+#     "my_dataset_val", {}, "./data/val.json", "./data/train"
 # )
 MetadataCatalog.get("my_dataset_train")
 DatasetCatalog.get("my_dataset_train")

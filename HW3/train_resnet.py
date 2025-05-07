@@ -39,7 +39,7 @@ def main():
     args = parse_args()
 
     # Register dataset
-    register_coco_instances("my_dataset_train", {}, "../data/full.json", "../data/train")
+    register_coco_instances("my_dataset_train", {}, "./data/full.json", "./data/train")
     MetadataCatalog.get("my_dataset_train")
     DatasetCatalog.get("my_dataset_train")
 
