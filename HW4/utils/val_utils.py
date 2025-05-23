@@ -2,8 +2,6 @@
 import time
 import numpy as np
 from skimage.metrics import peak_signal_noise_ratio, structural_similarity
-from skvideo.measure import niqe
-
 
 class AverageMeter():
     """ Computes and stores the average and current value """
@@ -61,7 +59,7 @@ def compute_psnr_ssim(recoverd, clean):
         # psnr_val += compare_psnr(clean[i], recoverd[i])
         # ssim += compare_ssim(clean[i], recoverd[i], multichannel=True)
         psnr += peak_signal_noise_ratio(clean[i], recoverd[i], data_range=1)
-        ssim += structural_similarity(clean[i], recoverd[i], data_range=1, multichannel=True)
+        ssim += structural_similarity(clean[i], recoverd[i], data_range=1, channel_axis=-1)
 
     return psnr / recoverd.shape[0], ssim / recoverd.shape[0], recoverd.shape[0]
 

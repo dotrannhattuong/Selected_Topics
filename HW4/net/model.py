@@ -319,7 +319,7 @@ class PromptIR(nn.Module):
                     
         self.output = nn.Conv2d(int(dim*2**1), out_channels, kernel_size=3, stride=1, padding=1, bias=bias)
 
-    def forward(self, inp_img,noise_emb = None):
+    def forward(self, inp_img, noise_emb = None):
 
         inp_enc_level1 = self.patch_embed(inp_img)
 
@@ -373,8 +373,6 @@ class PromptIR(nn.Module):
 
         out_dec_level1 = self.refinement(out_dec_level1)
 
-
         out_dec_level1 = self.output(out_dec_level1) + inp_img
-
 
         return out_dec_level1

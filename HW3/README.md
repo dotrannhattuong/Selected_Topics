@@ -40,7 +40,7 @@ conda install shapely
 
 ```bash
 # folder structure
-HW2/
+HW3/
 │
 ├── data/                 # COCO-format dataset folders: train, test_release, test, train.json, val.json, full.json, test_image_name_to_ids.json
 ├── visualize/            # Visualization scripts for plots and analysis

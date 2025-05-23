@@ -48,8 +48,8 @@ class PromptTrainDataset(Dataset):
         temp_ids = []
         rs = self.args.data_file_dir + "../rain.txt"
         temp_ids+= [self.args.derain_dir + id_.strip() for id_ in open(rs)]
-        self.rs_ids = [{"clean_id":x,"de_type":3} for x in temp_ids]
-        self.rs_ids = self.rs_ids * 120
+        self.rs_ids = [{"clean_id":x,"de_type":0} for x in temp_ids]
+        self.rs_ids = self.rs_ids * self.args.num_aug
 
         self.rl_counter = 0
         self.num_rl = len(self.rs_ids)
@@ -57,14 +57,14 @@ class PromptTrainDataset(Dataset):
 
     def _init_snow_ids(self):
         temp_ids = []
-        rs = self.args.data_file_dir + "../snow.txt"
-        temp_ids+= [self.args.desnow_dir + id_.strip() for id_ in open(rs)]
-        self.rs_ids = [{"clean_id":x,"de_type":6} for x in temp_ids]
-        self.rs_ids = self.rs_ids * 120
+        snow = self.args.data_file_dir + "../snow.txt"
+        temp_ids += [self.args.desnow_dir + id_.strip() for id_ in open(snow)]
+        self.snow_ids = [{"clean_id":x,"de_type":1} for x in temp_ids]
+        self.snow_ids = self.snow_ids * self.args.num_aug
 
-        self.rl_counter = 0
-        self.num_rl = len(self.rs_ids)
-        print("Total Snow Ids : {}".format(self.num_rl))    
+        self.snow_counter = 0
+        self.num_snow = len(self.snow_ids)
+        print("Total Snow Ids : {}".format(self.num_snow))    
 
     def _crop_patch(self, img_1, img_2):
         H = img_1.shape[0]
@@ -100,12 +100,12 @@ class PromptTrainDataset(Dataset):
         sample = self.sample_ids[idx]
         de_id = sample["de_type"]
 
-        if de_id == 3:
+        if de_id == 0:
             # Rain Streak Removal
             degrad_img = crop_img(np.array(Image.open(sample["clean_id"]).convert('RGB')), base=16)
             clean_name = self._get_gt_name(sample["clean_id"])
             clean_img = crop_img(np.array(Image.open(clean_name).convert('RGB')), base=16)
-        elif de_id == 6:
+        elif de_id == 1:
             # Snow Streak Removal
             degrad_img = crop_img(np.array(Image.open(sample["clean_id"]).convert('RGB')), base=16)
             clean_name = self._get_gt_name(sample["clean_id"])
@@ -115,7 +115,6 @@ class PromptTrainDataset(Dataset):
 
         clean_patch = self.toTensor(clean_patch)
         degrad_patch = self.toTensor(degrad_patch)
-
 
         return [clean_name, de_id], degrad_patch, clean_patch
 

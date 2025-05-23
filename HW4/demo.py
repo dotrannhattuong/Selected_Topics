@@ -46,6 +46,7 @@ def tile_eval(model,input_,tile=128,tile_overlap =32):
 
     restored = torch.clamp(restored, 0, 1)
     return restored
+
 class PromptIRModel(pl.LightningModule):
     def __init__(self):
         super().__init__()
@@ -69,12 +70,6 @@ class PromptIRModel(pl.LightningModule):
     def lr_scheduler_step(self,scheduler,metric):
         scheduler.step(self.current_epoch)
         lr = scheduler.get_lr()
-    
-    def configure_optimizers(self):
-        optimizer = optim.AdamW(self.parameters(), lr=2e-4)
-        scheduler = LinearWarmupCosineAnnealingLR(optimizer=optimizer,warmup_epochs=15,max_epochs=150)
-
-        return [optimizer],[scheduler]
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -83,16 +78,16 @@ if __name__ == '__main__':
     parser.add_argument('--mode', type=int, default=3,
                         help='0 for denoise, 1 for derain, 2 for dehaze, 3 for all-in-one')
 
-    parser.add_argument('--test_path', type=str, default="test/demo/", help='save path of test images, can be directory or an image')
-    parser.add_argument('--output_path', type=str, default="output/demo/", help='output save path')
-    parser.add_argument('--ckpt_name', type=str, default="model.ckpt", help='checkpoint save path')
+    parser.add_argument('--test_path', type=str, default="data/hw4_realse_dataset/test/degraded/", help='save path of test images, can be directory or an image')
+    parser.add_argument('--output_path', type=str, default="output/rainsnow_edge_woaug/", help='output save path')
+    parser.add_argument('--ckpt_name', type=str, default="best_edge_woaug.ckpt", help='checkpoint save path')
     parser.add_argument('--tile',type=bool,default=False,help="Set it to use tiling")
     parser.add_argument('--tile_size', type=int, default=128, help='Tile size (e.g 720). None means testing on the original resolution image')
     parser.add_argument('--tile_overlap', type=int, default=32, help='Overlapping of different tiles')
     opt = parser.parse_args()
 
 
-    ckpt_path = "ckpt/" + opt.ckpt_name
+    ckpt_path = "train_ckpt/" + opt.ckpt_name
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
@@ -105,7 +100,8 @@ if __name__ == '__main__':
     # Make network
     if torch.cuda.is_available():
         torch.cuda.set_device(opt.cuda)
-    net  = PromptIRModel().load_from_checkpoint(ckpt_path).to(device)
+    print(f"Loading model {opt.ckpt_name}")
+    net = PromptIRModel().load_from_checkpoint(ckpt_path).to(device)
     net.eval()
 
     test_set = TestSpecificDataset(opt)

@@ -11,6 +11,7 @@ __pycache__/
 *.json
 *.zip
 **/*.sh
+*.ckpt
 
 # Ignore any directory named "checkpoints"
 **/checkpoints*/
@@ -18,6 +19,9 @@ __pycache__/
 **/backup/
 **/data/
 **/results/
+final/
+images_HW3/
 
-selected_HW3/
-
+selected_HW3
+wandb
+output
