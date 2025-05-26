@@ -79,8 +79,8 @@ if __name__ == '__main__':
                         help='0 for denoise, 1 for derain, 2 for dehaze, 3 for all-in-one')
 
     parser.add_argument('--test_path', type=str, default="data/hw4_realse_dataset/test/degraded/", help='save path of test images, can be directory or an image')
-    parser.add_argument('--output_path', type=str, default="output/rainsnow_edge_woaug/", help='output save path')
-    parser.add_argument('--ckpt_name', type=str, default="best_edge_woaug.ckpt", help='checkpoint save path')
+    parser.add_argument('--output_path', type=str, default="output/rainsnow_edge/", help='output save path')
+    parser.add_argument('--ckpt_name', type=str, default="best_rainsnow_edge.ckpt", help='checkpoint save path')
     parser.add_argument('--tile',type=bool,default=False,help="Set it to use tiling")
     parser.add_argument('--tile_size', type=int, default=128, help='Tile size (e.g 720). None means testing on the original resolution image')
     parser.add_argument('--tile_overlap', type=int, default=32, help='Overlapping of different tiles')

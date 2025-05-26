@@ -20,13 +20,13 @@ parser.add_argument('--derain_dir', type=str, default='data/hw4_realse_dataset/'
                     help='where training images of deraining saves.')
 parser.add_argument('--desnow_dir', type=str, default='data/hw4_realse_dataset/',
                     help='where snowing images of desnowing saves.')
-parser.add_argument('--num_aug', type=int, default=25)
+parser.add_argument('--num_aug', type=int, default=120)
 
 # Save dir
 parser.add_argument("--wblogger",type=str,default="hw4",help = "Determine to log to wandb or not and the project name")
 parser.add_argument("--ckpt_dir",type=str,default="train_ckpt",help = "Name of the Directory where the checkpoint is to be saved")
-parser.add_argument("--ckpt_name",type=str, default="best_edge_25aug")
-parser.add_argument("--wandb_name",type=str, default="RainySnow_edge_25aug")
+parser.add_argument("--ckpt_name",type=str, default="best_rainsnow_edge")
+parser.add_argument("--wandb_name",type=str, default="RainySnow_edge")
 parser.add_argument('--output_path', type=str, default="output/", help='output save path')
 
 # Num of GPUs

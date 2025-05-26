@@ -22,6 +22,8 @@ __pycache__/
 final/
 images_HW3/
 
+*/*.txt
+
 selected_HW3
 wandb
 output
