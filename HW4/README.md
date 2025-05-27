@@ -1,4 +1,4 @@
-# Homework 3: Image Restoration
+# Homework 4: Image Restoration
 
 **StudentID**: 312540013  
 **Name**: Do Tran Nhat Tuong
