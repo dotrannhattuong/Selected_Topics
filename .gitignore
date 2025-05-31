@@ -16,6 +16,11 @@ HW3/*.sh
 HW4/*.sh
 *.ckpt
 
+final_proj/datasets/train/HR
+final_proj/datasets/train/LR
+final_proj/datasets/val/HR
+final_proj/datasets/val/LR
+
 # Ignore any directory named "checkpoints"
 **/checkpoints*/
 **/cp*/
@@ -23,6 +28,7 @@ HW4/*.sh
 **/data/
 **/results/
 final/
+final_proj/videogames_data
 images_HW3/
 
 */*.txt

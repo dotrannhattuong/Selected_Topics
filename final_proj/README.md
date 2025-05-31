@@ -44,7 +44,7 @@ final_proj/
 │   ├── train/                 # Low-res and high-res training pairs
 │   ├── val/                   # Validation set (paired LR-HR)
 │   ├── test/                  # Test LR set 
-│   └── preprocess.py          # Script to crop/prepare LR/HR patches
+│   └── process.py          # Script to crop/prepare LR/HR patches
 │
 ├── videogames_data/
 │   ├── train/                 # Full Low-res and high-res training pairs
@@ -65,10 +65,13 @@ final_proj/
 ├── environment.yml            # Conda environment definition
 ```
 
+## Download Dataset
+Download at [Video Games](https://www.kaggle.com/competitions/super-resolution-in-video-games/data).
+
 ## 🔧 Data Preparation
 Generate random 64×64 LR patches and corresponding 256×256 HR patches:
 ```bash
-python datasets/preprocess.py
+python datasets/process.py
 ```
 This script:
 1. Reads paired LR-HR images from videogames_data/train.

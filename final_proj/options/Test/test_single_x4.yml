@@ -9,7 +9,7 @@ datasets:
   test_1:  # the 1st test dataset
     name: Single
     type: SingleImageDataset
-    dataroot_lq: ../DAT/datasets/lr_test
+    dataroot_lq: ./videogames_data/test/lr
     io_backend:
       type: disk
     
