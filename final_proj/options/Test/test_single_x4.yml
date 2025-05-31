@@ -1,0 +1,43 @@
+# general settings
+name: test_single_x4_100k
+model_type: DATModel
+scale: 4
+num_gpu: 1
+manual_seed: 10
+
+datasets:
+  test_1:  # the 1st test dataset
+    name: Single
+    type: SingleImageDataset
+    dataroot_lq: ../DAT/datasets/lr_test
+    io_backend:
+      type: disk
+    
+    num_worker_per_gpu: 12
+    batch_size_per_gpu: 8
+
+
+# network structures
+network_g:
+  type: DAT
+  upscale: 4
+  in_chans: 3
+  img_size: 64
+  img_range: 1.
+  split_size: [8,8]
+  depth: [6,6,6,6,6,6]
+  embed_dim: 1100
+  num_heads: [6,6,6,6,6,6]
+  expansion_factor: 4
+  resi_connection: '1conv'
+
+# path
+path:
+  pretrain_network_g: ./experiments/train_DAT_scale_x4/models/net_g_100000.pth
+  strict_load_g: True
+
+# validation settings
+val:
+  save_img: True
+  suffix: 'x4'  # add suffix to saved images, if None, use exp name
+  use_chop: False  # True to save memory, if img too large

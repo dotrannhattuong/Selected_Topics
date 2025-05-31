@@ -3,14 +3,17 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.pdf
+# *.pdf
 # *.png
 *.jpg
 # *.yaml
 *.pth
 *.json
 *.zip
-**/*.sh
+HW1/*.sh
+HW2/*.sh
+HW3/*.sh
+HW4/*.sh
 *.ckpt
 
 # Ignore any directory named "checkpoints"
