@@ -1,5 +1,10 @@
 # Super Resolution in Video Games
 
+## Member:
+1. Do Tran Nhat Tuong (Student ID: 312540013)
+2. Le Ngoc Hoang Lam (Student ID: 312540020)
+3. Do Huu Phu (Student ID: 311540015)
+
 ---
 
 ## 📖 Introduction
