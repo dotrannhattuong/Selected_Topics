@@ -75,9 +75,10 @@ This script:
 Download the official [DAT pretrained weights](https://drive.google.com/file/d/1pEhXmg--IWHaZOwHUFdh7TEJqt2qeuYg/view) and place them in experiments/pretrained_models/:
 
 ## 🚀 Training
-bash```
+```bash
 sh scripts/train.sh
 ```
+
 Default configuration (in train.sh):
 1. Batch size: 4 per GPU
 2. Num of GPUs: 4
