@@ -1,5 +1,5 @@
 # general settings
-name: test_single_x4_100k
+name: MSW
 model_type: DATModel
 scale: 4
 num_gpu: 1
