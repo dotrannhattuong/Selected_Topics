@@ -43,7 +43,6 @@ final_proj/
 ├── datasets/
 │   ├── train/                 # Low-res and high-res training pairs
 │   ├── val/                   # Validation set (paired LR-HR)
-│   ├── test/                  # Test LR set 
 │   └── process.py          # Script to crop/prepare LR/HR patches
 │
 ├── videogames_data/
@@ -51,18 +50,19 @@ final_proj/
 │   ├── test/                  # Test LR set 
 │
 ├── experiments/
-│   └── pretrained_models/     # Downloaded pretrained .pth files
+│   └── DAT_x4.pth     # Downloaded pretrained .pth files
 │
 ├── scripts/
 │   ├── train.sh               # Single-line training command
 │   ├── test.sh                # Single-line inference command
-│   └── download_pretrained.sh # Script to fetch pretrained weights
 │
 ├── figures/
 │   └── performance.png        # Snapshot of PSNR performance
 │   └── architecture.pdf       # Model architecture diagram
 │
 ├── environment.yml            # Conda environment definition
+│
+├── gen.py           
 ```
 
 ## Download Dataset
@@ -80,7 +80,7 @@ This script:
 4. Saves preprocessed patches to datasets/train/ and datasets/val/.
 
 ## 📥 Download Pretrained Model
-Download the official [DAT pretrained weights](https://drive.google.com/file/d/1pEhXmg--IWHaZOwHUFdh7TEJqt2qeuYg/view) and place them in experiments/pretrained_models/:
+Download the official [DAT pretrained weights](https://drive.google.com/file/d/1pEhXmg--IWHaZOwHUFdh7TEJqt2qeuYg/view) and place them in experiments/:
 
 ## 🚀 Training
 ```bash

@@ -55,7 +55,7 @@ network_g:
 
 # path
 path:
-  pretrain_network_g: ./experiments/pretrained_models/DAT_x4.pth # save half of training time if we finetune from x2 and halve initial lr.
+  pretrain_network_g: ./experiments/DAT_x4.pth # save half of training time if we finetune from x2 and halve initial lr.
   strict_load_g: False
   resume_state: ~
 
