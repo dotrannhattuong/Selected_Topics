@@ -25,7 +25,8 @@ final_proj/datasets/val/LR
 **/checkpoints*/
 **/cp*/
 **/backup/
-**/data/
+HW3/data/
+HW4/data/
 **/results/
 final/
 final_proj/videogames_data
