@@ -33,7 +33,7 @@ network_g:
 
 # path
 path:
-  pretrain_network_g: ./experiments/train_DAT_scale_x4/models/net_g_100000.pth
+  pretrain_network_g: ./experiments/MSW/models/net_g_100000.pth
   strict_load_g: True
 
 # validation settings
