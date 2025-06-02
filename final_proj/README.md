@@ -17,11 +17,11 @@ Image Super-Resolution (SR) reconstructs a high-resolution (HR) image from a low
    - Improves receptive field, capturing both small UI elements and large background textures.
 
 2. **Patch Cropping Consistency**  
-   - Apply random paired cropping of LR (\(64 \times 64\)) and HR (\(256 \times 256\)) patches during training.  
+   - Apply random paired cropping of LR (64x64) and HR (256x256) patches during training.  
    - Ensures alignment between training and inference spatial contexts.
 
 3. **State-of-the-Art Results**  
-   - Achieve a PSNR of 34.424 on the test leaderboard, surpassing the previous top solution (PSNR 33.800).  
+   - Achieve a PSNR of 34.315 on the test leaderboard, surpassing the previous top solution (PSNR 33.800).  
    - Demonstrate that MSW-DAT balances local detail recovery and global structure in video game imagery.
 
 <p align="center">
